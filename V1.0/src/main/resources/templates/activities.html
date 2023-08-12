@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Activities</title>
+    <style>
+        h1 {
+        text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Activities</h1>
+<form action="activities/add" method="POST">
+    <label>Location: </label>
+    <label>
+        <input type="text" name="location"/>
+    </label> <br/>
+    <label>Description: </label>
+    <label>
+        <input type="text" name="description"/>
+    </label> <br/>
+    <label>Date created: </label>
+    <label>
+        <input type="date" name="dateCreated"/>
+    </label> <br/>
+    <button>Submit</button>
+</form>
+<p th:text="${activitylist}"></p>
+<form action="/?" method="GET">
+    <button>Home</button>
+</form>
+</body>
+</html>

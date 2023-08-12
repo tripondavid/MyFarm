@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipment</title>
+    <style>
+        h1 {
+        text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Equipment</h1>
+<form action="equipment/add" method="POST">
+    <label>Name: </label>
+    <label>
+        <input type="text" name="name"/>
+    </label> <br/>
+    <label>Type: </label>
+    <label>
+        <input type="text" name="type"/>
+    </label> <br/>
+    <label>Utility: </label>
+    <label>
+        <input type="text" name="utility"/>
+    </label> <br/>
+    <label>Quantity: </label>
+    <label>
+        <input type="number" min="0" name="quantity"/>
+    </label> <br/>
+    <button>Submit</button>
+</form>
+<p th:text="${equipmentlist}"></p>
+<form action="/?" method="GET">
+    <button>Home</button>
+</form>
+</body>
+</html>
