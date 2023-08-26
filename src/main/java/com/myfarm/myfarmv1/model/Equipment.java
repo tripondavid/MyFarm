@@ -11,8 +11,6 @@ public class Equipment {
     @Column
     private String name;
     @Column
-    private String type;
-    @Column
     private int quantity;
     @Column
     private String utility;
@@ -36,9 +34,8 @@ public class Equipment {
         this.utility = utility;
     }
 
-    public Equipment(String name, String type) {
+    public Equipment(String name) {
         this.name = name;
-        this.type = type;
     }
 
     public String getName() {
@@ -52,18 +49,10 @@ public class Equipment {
     @Override
     public String toString() {
         return "Equipment{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", quantity=" + quantity +
                 ", utility='" + utility + '\'' +
                 '}';
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

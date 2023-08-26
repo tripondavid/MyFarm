@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Equipment</title>
     <style>
+        body {
+        background-image: url('EquipmentBackground.jpeg');
+        background-size: cover;
+        }
         h1 {
         text-align: center;
         }
@@ -16,10 +20,6 @@
     <label>
         <input type="text" name="name"/>
     </label> <br/>
-    <label>Type: </label>
-    <label>
-        <input type="text" name="type"/>
-    </label> <br/>
     <label>Utility: </label>
     <label>
         <input type="text" name="utility"/>
@@ -30,7 +30,12 @@
     </label> <br/>
     <button>Submit</button>
 </form>
-<p th:text="${equipmentlist}"></p>
+<div th:each="equipment: ${equipments}">
+    <p th:text="'Name: ' + ${equipment.getName()}"></p>
+    <p th:text="'Utility: ' + ${equipment.getUtility()}"></p>
+    <p th:text="'Quantity: ' + ${equipment.getQuantity()}"></p>
+    <br>
+</div>
 <form action="/?" method="GET">
     <button>Home</button>
 </form>

@@ -1,5 +1,6 @@
 package com.myfarm.myfarmv1.controller;
 
+import com.fasterxml.jackson.databind.util.ArrayIterator;
 import com.myfarm.myfarmv1.model.Activity;
 import com.myfarm.myfarmv1.repository.ActivityDBRepository;
 import org.springframework.stereotype.Controller;
@@ -23,8 +24,10 @@ public class ActivityDBController {
 
     @GetMapping("")
     public String getActivityPage(Model model) {
-        if(this.activityDBRepository.count() != 0)
-            model.addAttribute("activitylist", this.activityDBRepository.findAll());
+        if(this.activityDBRepository.count() != 0) {
+            Iterable<Activity> activities = this.activityDBRepository.findAll();
+            model.addAttribute("activities", activities);
+        }
         return "activities";
     }
 

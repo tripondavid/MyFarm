@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Activities</title>
     <style>
+        body {
+        background-image: url('ActivityBackground.jpg');
+        background-size: cover;
+        }
         h1 {
         text-align: center;
         }
@@ -26,7 +30,13 @@
     </label> <br/>
     <button>Submit</button>
 </form>
-<p th:text="${activitylist}"></p>
+<div th:each="activity: ${activities}">
+    <p th:text="'Location: ' + ${activity.getLocation()}"></p>
+    <p th:text="'Description: ' + ${activity.getDescription()}"></p>
+    <p th:text="'Date created: ' + ${activity.getDateCreated()}"></p>
+    <p th:text="'Date updated: ' + ${activity.getDateUpdated()}"></p>
+    <br>
+</div>
 <form action="/?" method="GET">
     <button>Home</button>
 </form>

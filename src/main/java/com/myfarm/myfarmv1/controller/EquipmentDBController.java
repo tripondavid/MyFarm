@@ -20,14 +20,16 @@ public class EquipmentDBController {
     }
     @GetMapping("")
     public String getEquipmentPage(Model model) {
-        if(this.equipmentDBRepository.count() != 0)
-            model.addAttribute("equipmentlist", this.equipmentDBRepository.findAll());
+        if(this.equipmentDBRepository.count() != 0) {
+            Iterable<Equipment> equipments = this.equipmentDBRepository.findAll();
+            model.addAttribute("equipments", equipments);
+        }
         return "equipment";
     }
 
     @PostMapping("/add")
     public RedirectView addEquipment(@ModelAttribute Equipment equipment) {
-        if(equipment.getName() != null && equipment.getName() != "" && equipment.getType() != null && equipment.getType() != ""
+        if(equipment.getName() != null && equipment.getName() != ""
                 && equipment.getUtility() != null && equipment.getUtility() != "")
             this.equipmentDBRepository.save(equipment);
         return new RedirectView("/equipment");
