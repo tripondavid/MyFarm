@@ -5,10 +5,7 @@ import com.myfarm.myfarmv1.model.Activity;
 import com.myfarm.myfarmv1.repository.ActivityDBRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.time.LocalDate;
@@ -38,6 +35,13 @@ public class ActivityDBController {
             activity.setDateUpdated(LocalDate.now().toString());
             this.activityDBRepository.save(activity);
         }
+        return new RedirectView("/activities");
+    }
+
+    //no delete method in HTML
+    @PostMapping("/deletebyid")
+    public RedirectView deleteActivityById(@RequestParam Long id) {
+        this.activityDBRepository.deleteById(id);
         return new RedirectView("/activities");
     }
 }

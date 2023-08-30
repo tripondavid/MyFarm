@@ -30,15 +30,25 @@
     </label> <br/>
     <button>Submit</button>
 </form>
+<br>
+<form action="activities/deletebyid" method="POST">
+    <label>Delete by ID: </label>
+    <label>
+        <input type="number" name="id">
+    </label> <br/>
+    <button>Delete</button>
+</form>
+<br>
+<form action="/?" method="GET">
+    <button>Home</button>
+</form>
 <div th:each="activity: ${activities}">
+    <p th:text="'ID: ' + ${activity.getId()}"></p>
     <p th:text="'Location: ' + ${activity.getLocation()}"></p>
     <p th:text="'Description: ' + ${activity.getDescription()}"></p>
     <p th:text="'Date created: ' + ${activity.getDateCreated()}"></p>
     <p th:text="'Date updated: ' + ${activity.getDateUpdated()}"></p>
     <br>
 </div>
-<form action="/?" method="GET">
-    <button>Home</button>
-</form>
 </body>
 </html>

@@ -12,6 +12,15 @@ public class Equipment {
     private String name;
     @Column
     private int quantity;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Column
     private String utility;
 
